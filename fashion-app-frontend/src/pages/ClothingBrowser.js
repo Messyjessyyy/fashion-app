@@ -44,7 +44,11 @@ function ClothingBrowser({ user, onBack }) {
               onClick={() => toggleItem(item.id)}
             >
               <div className="clothing-image">
-                {['👕', '👖', '👗', '🧥'][item.id - 1]}
+                {item.image ? (
+                  <img src={item.image} alt={item.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                ) : (
+                  <span>{['👕', '👖', '👗', '🧥'][item.id - 1]}</span>
+                )}
               </div>
               <h3>{item.name}</h3>
               <p className="category">{item.category}</p>

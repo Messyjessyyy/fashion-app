@@ -4,10 +4,14 @@ const url = require('url');
 // In-memory data
 const users = [];
 const clothing = [
-  { id: 1, name: 'White T-Shirt', price: 29.99, category: 'tops' },
-  { id: 2, name: 'Blue Jeans', price: 59.99, category: 'bottoms' },
-  { id: 3, name: 'Summer Dress', price: 49.99, category: 'dresses' },
-  { id: 4, name: 'Denim Jacket', price: 79.99, category: 'outerwear' },
+  { id: 1, name: 'White T-Shirt', price: 29.99, category: 'tops', image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&q=80' },
+  { id: 2, name: 'Blue Jeans', price: 59.99, category: 'bottoms', image: 'https://images.unsplash.com/photo-1542272604-787c62d465d1?w=300&q=80' },
+  { id: 3, name: 'Summer Dress', price: 49.99, category: 'dresses', image: 'https://images.unsplash.com/photo-1595777707802-5b593db2bbb8?w=300&q=80' },
+  { id: 4, name: 'Denim Jacket', price: 79.99, category: 'outerwear', image: 'https://images.unsplash.com/photo-1551028719-00167b16ebc5?w=300&q=80' },
+  { id: 5, name: 'Red Blazer', price: 89.99, category: 'outerwear', image: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=300&q=80' },
+  { id: 6, name: 'Black Skirt', price: 44.99, category: 'bottoms', image: 'https://images.unsplash.com/photo-1606856110002-d0991ce78250?w=300&q=80' },
+  { id: 7, name: 'Casual Sweater', price: 54.99, category: 'tops', image: 'https://images.unsplash.com/photo-1556821552-cb06b8e504a7?w=300&q=80' },
+  { id: 8, name: 'Leather Boots', price: 129.99, category: 'accessories', image: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=300&q=80' },
 ];
 
 // Helper to parse JSON from request body

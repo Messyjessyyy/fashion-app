@@ -73,6 +73,7 @@ function BuildOutfit({ user, onBack }) {
 
   const getItemEmoji = (id) => ['👕', '👖', '👗', '🧥'][id - 1];
   const getItemName = (id) => clothing.find(c => c.id === id)?.name || 'Unknown';
+  const getItemImage = (id) => clothing.find(c => c.id === id)?.image;
 
   return (
     <div className="App build-outfit">
@@ -91,7 +92,13 @@ function BuildOutfit({ user, onBack }) {
                 className={`clothing-card ${selectedOutfit.includes(item.id) ? 'selected' : ''}`}
                 onClick={() => toggleItem(item.id)}
               >
-                <div className="clothing-image">{getItemEmoji(item.id)}</div>
+                <div className="clothing-image">
+                  {item.image ? (
+                    <img src={item.image} alt={item.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  ) : (
+                    <span>{getItemEmoji(item.id)}</span>
+                  )}
+                </div>
                 <h3>{item.name}</h3>
                 <p className="category">{item.category}</p>
                 <p className="price">${item.price.toFixed(2)}</p>
@@ -115,7 +122,7 @@ function BuildOutfit({ user, onBack }) {
               <div className="selected-items-list">
                 {selectedOutfit.map(id => (
                   <div key={id} className="selected-item">
-                    <span>{getItemEmoji(id)} {getItemName(id)}</span>
+                    <span>{getItemName(id)}</span>
                   </div>
                 ))}
               </div>
@@ -139,7 +146,7 @@ function BuildOutfit({ user, onBack }) {
                   <div className="outfit-items">
                     {outfit.items.map(id => (
                       <span key={id} className="outfit-badge">
-                        {getItemEmoji(id)} {getItemName(id)}
+                        {getItemName(id)}
                       </span>
                     ))}
                   </div>
