@@ -16,7 +16,7 @@ function Dashboard({ user, onLogout }) {
 
   const fetchProfile = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/users/${user.id}/profile`);
+      const response = await fetch(`https://fashion-app-backend-inxq.onrender.com/api/users/${user.id}/profile`);
       const data = await response.json();
       setProfile(data);
     } catch (error) {

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 function EditProfile({ user, onBack, onSave }) {
   const [profile, setProfile] = useState({
     bodyType: '',
@@ -15,7 +14,7 @@ function EditProfile({ user, onBack, onSave }) {
 
   const fetchProfile = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/users/${user.id}/profile`);
+      const response = await fetch(`https://fashion-app-backend-inxq.onrender.com/api/users/${user.id}/profile`);
       const data = await response.json();
       if (data.profile) {
         setProfile(data.profile);
@@ -31,7 +30,7 @@ function EditProfile({ user, onBack, onSave }) {
     e.preventDefault();
     setSaving(true);
     try {
-      const response = await fetch(`http://localhost:3000/api/users/${user.id}/profile`, {
+      const response = await fetch(`https://fashion-app-backend-inxq.onrender.com/api/users/${user.id}/profile`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(profile)
@@ -54,7 +53,6 @@ function EditProfile({ user, onBack, onSave }) {
         <h1>Edit Profile</h1>
         <button onClick={onBack} className="back-btn">← Back</button>
       </div>
-
       <div className="form-container">
         <form onSubmit={handleSubmit} className="edit-form">
           <div className="form-group">
@@ -70,7 +68,6 @@ function EditProfile({ user, onBack, onSave }) {
               <option value="Plus-size">Plus-size</option>
             </select>
           </div>
-
           <div className="form-group">
             <label>Skin Tone</label>
             <select 
@@ -85,7 +82,6 @@ function EditProfile({ user, onBack, onSave }) {
               <option value="Deep">Deep</option>
             </select>
           </div>
-
           <div className="form-group">
             <label>Style Preference</label>
             <select 
@@ -100,7 +96,6 @@ function EditProfile({ user, onBack, onSave }) {
               <option value="Minimalist">Minimalist</option>
             </select>
           </div>
-
           <div className="form-buttons">
             <button type="submit" className="btn-primary" disabled={saving}>
               {saving ? 'Saving...' : 'Save Changes'}
@@ -112,5 +107,4 @@ function EditProfile({ user, onBack, onSave }) {
     </div>
   );
 }
-
 export default EditProfile;

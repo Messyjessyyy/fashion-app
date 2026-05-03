@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 function LoginPage({ onLogin }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -9,15 +8,13 @@ function LoginPage({ onLogin }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
-    
     try {
-      const response = await fetch(`http://localhost:3000${endpoint}`, {
+      const response = await fetch(`https://fashion-app-backend-inxq.onrender.com${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
       const data = await response.json();
-      
       if (response.ok) {
         onLogin(data.user);
         setEmail('');
@@ -65,5 +62,4 @@ function LoginPage({ onLogin }) {
     </div>
   );
 }
-
 export default LoginPage;
