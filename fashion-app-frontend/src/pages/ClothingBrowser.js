@@ -11,7 +11,7 @@ function ClothingBrowser({ user, onBack }) {
 
   const fetchClothing = async () => {
     try {
-      const response = await fetch('https://fashion-app-backend-inxq.onrender.com');
+      const response = await fetch('http://localhost:3000/api/clothing');
       const data = await response.json();
       setClothing(data);
     } catch (error) {
@@ -35,7 +35,6 @@ function ClothingBrowser({ user, onBack }) {
         <h1>👗 Browse Clothing</h1>
         <button onClick={onBack} className="back-btn">← Back</button>
       </div>
-
       <div className="clothing-container">
         <div className="clothing-grid">
           {clothing.map((item) => (
@@ -56,7 +55,6 @@ function ClothingBrowser({ user, onBack }) {
             </div>
           ))}
         </div>
-
         {selectedItems.length > 0 && (
           <div className="selected-summary">
             <h3>Selected Items: {selectedItems.length}</h3>

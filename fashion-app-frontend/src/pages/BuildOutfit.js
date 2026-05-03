@@ -14,7 +14,7 @@ function BuildOutfit({ user, onBack }) {
 
   const fetchClothing = async () => {
     try {
-      const response = await fetch('https://fashion-app-backend-inxq.onrender.com');
+      const response = await fetch('http://localhost:3000/api/clothing');
       const data = await response.json();
       setClothing(data);
     } catch (error) {
