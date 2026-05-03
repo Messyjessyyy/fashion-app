@@ -16,7 +16,7 @@ function Measurements({ user, onBack }) {
 
   const fetchMeasurements = async () => {
     try {
-      const response = await fetch(`https://fashion-app-backend-inxq.onrender.com/api/users/${user.id}/profile`);
+      const response = await fetch(`http://localhost:3000/api/users/${user.id}/profile`);
       const data = await response.json();
       if (data.measurements) {
         setMeasurements(data.measurements);
@@ -32,7 +32,7 @@ function Measurements({ user, onBack }) {
     e.preventDefault();
     setSaving(true);
     try {
-      const response = await fetch(`https://fashion-app-backend-inxq.onrender.com/api/users/${user.id}/measurements`, {
+      const response = await fetch(`http://localhost:3000/api/users/${user.id}/measurements`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(measurements)

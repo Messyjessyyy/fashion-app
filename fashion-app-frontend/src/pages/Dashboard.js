@@ -16,7 +16,7 @@ function Dashboard({ user, onLogout }) {
 
   const fetchProfile = async () => {
     try {
-      const response = await fetch(`https://fashion-app-backend-inxq.onrender.com/api/users/${user.id}/profile`);
+      const response = await fetch(`http://localhost:3000/api/users/${user.id}/profile`);
       const data = await response.json();
       setProfile(data);
     } catch (error) {
@@ -27,7 +27,6 @@ function Dashboard({ user, onLogout }) {
   };
 
   if (loading) return <div className="App"><div className="card"><p>Loading...</p></div></div>;
-
   if (currentPage === 'clothing') return <ClothingBrowser user={user} onBack={() => setCurrentPage('dashboard')} />;
   if (currentPage === 'edit-profile') return <EditProfile user={user} onBack={() => { fetchProfile(); setCurrentPage('dashboard'); }} />;
   if (currentPage === 'build-outfit') return <BuildOutfit user={user} onBack={() => setCurrentPage('dashboard')} />;

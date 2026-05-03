@@ -14,7 +14,7 @@ function EditProfile({ user, onBack, onSave }) {
 
   const fetchProfile = async () => {
     try {
-      const response = await fetch(`https://fashion-app-backend-inxq.onrender.com/api/users/${user.id}/profile`);
+      const response = await fetch(`http://localhost:3000/api/users/${user.id}/profile`);
       const data = await response.json();
       if (data.profile) {
         setProfile(data.profile);
@@ -30,7 +30,7 @@ function EditProfile({ user, onBack, onSave }) {
     e.preventDefault();
     setSaving(true);
     try {
-      const response = await fetch(`https://fashion-app-backend-inxq.onrender.com/api/users/${user.id}/profile`, {
+      const response = await fetch(`http://localhost:3000/api/users/${user.id}/profile`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(profile)

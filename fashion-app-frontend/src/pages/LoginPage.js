@@ -9,7 +9,7 @@ function LoginPage({ onLogin }) {
     e.preventDefault();
     const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
     try {
-      const response = await fetch(`https://fashion-app-backend-inxq.onrender.com${endpoint}`, {
+      const response = await fetch(`http://localhost:3000${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
